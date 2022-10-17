@@ -6,6 +6,7 @@
 .firebase.init.js
 /.pnp
 .pnp.js
+test
 
 # testing
 /coverage
