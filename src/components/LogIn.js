@@ -1,6 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../context/UserContext';
 
 const LogIn = () => {
+    const { logIn } = useContext(AuthContext);
+
+    const handleSubmit = (event) => {
+        console.log("clicked")
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(typeof password)
+        console.log(email, password)
+        logIn(email, password)
+            .then(res => console.log(res, "logIn Successful"))
+            .catch(err => console.log(err.message))
+    }
+
+
     return (
 
         <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100 mx-auto">
@@ -9,7 +26,7 @@ const LogIn = () => {
             <a href="#" rel="noopener noreferrer" className="focus:underline hover:underline">Sign up here</a>
             </p>
 
-            <form action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
+            <form onSubmit={handleSubmit} className="space-y-8 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-4">
                     <div className="space-y-2">
                         <label htmlFor="email" className="block text-sm">Email address</label>
@@ -23,7 +40,8 @@ const LogIn = () => {
                         <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:border-violet-400" />
                     </div>
                 </div>
-                <button type="button" className="w-full px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900">Sign in</button>
+                <button className="w-full px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900">Sign in</button>
+
                 <div className="flex items-center w-full my-4">
                     <hr className="w-full text-gray-400" />
                     <p className="px-3 text-gray-400">OR</p>
@@ -50,7 +68,7 @@ const LogIn = () => {
                     </button>
                 </div>
             </form>
-        </div>
+        </div >
 
 
     )
