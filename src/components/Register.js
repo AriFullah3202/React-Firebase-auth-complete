@@ -2,7 +2,7 @@ import React from 'react'
 
 const Register = () => {
     return (
-        <section class="bg-white dark:bg-gray-900">
+        <section class="bg-black dark:bg-gray-900 w-3/5 mx-auto">
             <div class="container flex items-center justify-center min-h-screen px-6 mx-auto">
                 <form class="w-full max-w-md">
 
@@ -24,7 +24,7 @@ const Register = () => {
 
                         <h2 class="mx-3 text-gray-400">Profile Photo</h2>
 
-                        <input id="dropzone-file" type="file" class="hidden" />
+                        <input id="dropzone-file" type="file" class="hidden" disabled />
                     </label>
 
                     <div class="relative flex items-center mt-6">
